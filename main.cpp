@@ -5,6 +5,7 @@ int main(){
   std::cout << "Lo que dijo Alan Albino es correcto, la cajetie con los espacio y guiones" << std::endl;
   std::cout << "Christian dice Nice!!!" << std::endl;
   std::cout << "Karol dijo hola en voz bajita" << std::endl;
+  std::cout << "Salvador dice lo basico y emmanuel dice que poco, \n\taunque sea basico lo poco"<< std::endl;
 // OTRO CODIO como de pruebas, actividades extras, etc.
   return 0;
 }
