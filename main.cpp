@@ -6,7 +6,8 @@ int main(){
   std::cout << "Christian dice Nice!!!" << std::endl;
   std::cout << "Karol dijo hola en voz bajita" << std::endl;
   std::cout << "Salvador dice lo basico y emmanuel dice que poco, \n\taunque sea basico lo poco"<< std::endl;
-  int a= b = c=0;
+  int b;
+  int c;
 
   c=15;
   b=4;
