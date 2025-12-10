@@ -14,6 +14,13 @@ jobs:
       - name: Checkout Repository Code
         uses: actions/checkout@v4
 
+      - name: Set Image Version Tag
+        id: vars
+        run: |
+          # Get the first 7 characters of the Git commit SHA.
+          # This creates a unique version number for this specific build.
+          VERSION_TAG=$(echo ${{ github.sha }} | cut -c1-7)
+          echo "IMAGE_TAG=${VERSION_TAG}" >> $GITHUB_OUTPUT
       # Paso 2: Logear al sistema de Contenedores.
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -27,10 +34,13 @@ jobs:
         with:
           context: . # busca el Dockerfile en el directorio actual.
           push: true # Empuja la image resultado al registro
-          tags: ${{secrets.DOCKER_USERNAME }}/mensaje-pila:latest
+          tags: |
+            ${{secrets.DOCKER_USERNAME }}/mensaje-pila:latest
+            ${{ secrets.DOCKER_USERNAME }}/cpp-hello-world:${{ steps.vars.outputs.IMAGE_TAG }}
 
       # Paso 4: (opcional) Agregar una confirmacion de la etapa CD haya sido completado.
       - name: Deployment Confirmation
         run: | 
           echo "Successfully built and pushed the image to Docker Hub!"
           echo "Image: ${{secrets.DOCKER_USERNAME }}/mensaje-pila:latest"
+          echo "Version Tag: ${{ secrets.DOCKER_USERNAME }}/mensaje-pila:${{ steps.vars.outputs.IMAGE_TAG }}"
