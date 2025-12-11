@@ -36,7 +36,7 @@ jobs:
           push: true # Empuja la image resultado al registro
           tags: |
             ${{secrets.DOCKER_USERNAME }}/mensaje-pila:latest
-            ${{ secrets.DOCKER_USERNAME }}/cpp-hello-world:${{ steps.vars.outputs.IMAGE_TAG }}
+            ${{ secrets.DOCKER_USERNAME }}/mensaje-pila:${{ steps.vars.outputs.IMAGE_TAG }}
 
       # Paso 4: (opcional) Agregar una confirmacion de la etapa CD haya sido completado.
       - name: Deployment Confirmation
