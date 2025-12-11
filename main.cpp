@@ -14,6 +14,7 @@ int main(){
   b=4;
   std::cout << c+b << std::endl;
   std::cout << "I have version control now" << std::endl;
+  std::cout << "Ya valio esta madre!!!" << std::endl;
   
 // OTRO CODIO como de pruebas, actividades extras, etc.
   return 0;
