@@ -8,6 +8,7 @@ int main(){
   std::cout << "Salvador dice lo basico y emmanuel dice que poco, \n\taunque sea basico lo poco"<< std::endl;
   int b;
   int c;
+  // Have no money
 
   c=15;
   b=4;
